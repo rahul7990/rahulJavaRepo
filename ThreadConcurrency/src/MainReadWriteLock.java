@@ -35,8 +35,8 @@ class MyReadWriteRunable implements Runnable{
 	@Override
 	public void run() {
 		
-		//readwriteloack.readLock().lock();
-		readwriteloack.writeLock().lock();
+		readwriteloack.readLock().lock();
+		//readwriteloack.writeLock().lock();
 		System.out.println("Thread :"+ Thread.currentThread().getName() +"has accuired read loack");
 		
 		try {
@@ -46,8 +46,8 @@ class MyReadWriteRunable implements Runnable{
 			e.printStackTrace();
 		}
 		
-		//readwriteloack.readLock().unlock();
-		readwriteloack.writeLock().unlock();
+		readwriteloack.readLock().unlock();
+		//readwriteloack.writeLock().unlock();
 		
 		System.out.println("Thread :"+Thread.currentThread().getName() +"has released the read lock");
 	}

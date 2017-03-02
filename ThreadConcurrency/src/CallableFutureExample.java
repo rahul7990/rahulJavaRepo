@@ -14,12 +14,12 @@ class SumIntegerCallable implements Callable<Integer> {
  
     @Override
     public Integer call() throws Exception {
-          /* Integer sum = 0;
+           Integer sum = 0;
            for (int i = 0; i <= n; i++) {
                   sum += i;
            }
-           return sum;*/
-    	return 10;
+           return sum;
+    	//return 10;
     }
  
 }

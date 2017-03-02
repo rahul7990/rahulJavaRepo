@@ -8,10 +8,10 @@
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/TestDB" />
-		<property name="username" value="pankaj" />
-		<property name="password" value="pankaj123" />
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:orcl" />
+		<property name="username" value="scott" />
+		<property name="password" value="tiger" />
 	</bean>
 
 <!-- Hibernate 3 XML SessionFactory Bean definition-->
@@ -31,8 +31,8 @@
 	</bean> -->
 
 <!-- Hibernate 3 Annotation SessionFactory Bean definition-->
-	<bean id="hibernate3AnnotatedSessionFactory"
-		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+	<bean id="hibernate4AnnotatedSessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="annotatedClasses">
 			<list>
@@ -41,7 +41,7 @@
 		</property>
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
 				<prop key="hibernate.current_session_context_class">thread</prop>
 				<prop key="hibernate.show_sql">false</prop>
 			</props>
@@ -49,6 +49,6 @@
 	</bean>
 	
 	<bean id="personDAO" class="com.journaldev.dao.PersonDAOImpl">
-		<property name="sessionFactory" ref="hibernate3AnnotatedSessionFactory" />
+		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
 	</bean>
 </beans>

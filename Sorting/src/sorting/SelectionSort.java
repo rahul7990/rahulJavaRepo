@@ -8,7 +8,7 @@ public class SelectionSort {
 			int index=i;
 			
 			for(int j=i+1;j<array.length;j++){
-				if(array[j]<array[index])
+				if(array[j]<array[index])  
 					index = j;
 			}
 				int smallestElement = array[index];

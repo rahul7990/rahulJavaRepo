@@ -19,7 +19,7 @@ public class PersonDAOImpl implements PersonDAO {
 	public void save(Person p) {
 		Session session = this.sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
-		session.persist(p);
+		session.save(p);
 		tx.commit();
 		session.close();
 	}
